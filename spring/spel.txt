@@ -1,0 +1,57 @@
+package one;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.expression.*;
+import org.springframework.expression.spel.standard.SpelExpressionParser;
+import org.springframework.expression.spel.support.StandardEvaluationContext;
+
+public class spel1 {
+	public static void main(String[] args) {
+	   
+		//person  person1=new person("person1");
+		List<String>list1=new ArrayList<String>(); 
+	    list1.add("one");
+	    list1.add("two");
+	    list1.add("three");
+		EvaluationContext ctx=new StandardEvaluationContext();
+		ctx.setVariable("list", list1);
+		
+		ExpressionParser parser=new SpelExpressionParser();
+		Expression exp = parser.parseExpression("#list"); 
+		
+		System.out.println(exp.getValue(ctx));
+		
+		
+		
+		
+	
+	   
+	   
+	   
+	    
+	
+	   
+	    
+	    
+	}
+
+}
+
+class person {
+	public String name;
+	public person(String name)
+	{
+		this.name=name;
+	}	
+} 
+
+
+
+
+
+
+
+
+
